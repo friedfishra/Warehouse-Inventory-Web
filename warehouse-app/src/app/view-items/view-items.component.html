@@ -1,0 +1,17 @@
+<!-- <p>view-items works!</p>
+<p>{{ title }}</p>
+<ul>
+    <li *ngFor="let temp of items">{{temp.itemName}}</li>
+</ul>
+<button >View Items</button> -->
+<button type="button" pButton label="PrimeNG" class="p-button-raised p-button-rounded"></button>
+<table>
+    <tr><th>Item Name</th><th>Weight</th><th>Weight Type</th><th>Zone</th><th>Aisle</th></tr>
+    <tr *ngFor="let temp of items">
+        <td>{{temp.itemName}}</td>
+        <td>{{temp.weight}}</td>
+        <td>{{temp.weightType}}</td>
+        <td>{{temp.zoneId}}</td>
+        <td>{{temp.aisle}}</td>
+    </tr>
+</table>

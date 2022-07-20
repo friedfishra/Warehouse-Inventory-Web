@@ -18,4 +18,9 @@ export class ItemApiService {
    findAll() :Observable<any> {
     return this.http.get(environment.apiUrl);
    }
-}
+
+   findById(id :number) :Observable<any> {
+    return this.http.get(environment.apiUrl + id)
+   }
+  
+  }

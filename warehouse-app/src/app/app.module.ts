@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,11 +16,18 @@ import {MenuItemContent, MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
 import {MegaMenuItem} from 'primeng/api';
 import {FilterService} from 'primeng/api';
+import {InputTextModule} from 'primeng/inputtext';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {SpeedDialModule} from 'primeng/speeddial';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewItemsComponent
+    ViewItemsComponent,
+    NavBarComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,10 @@ import {FilterService} from 'primeng/api';
     ButtonModule,
     TableModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    InputTextModule,
+    SplitButtonModule,
+    SpeedDialModule
 
   ],
   providers: [

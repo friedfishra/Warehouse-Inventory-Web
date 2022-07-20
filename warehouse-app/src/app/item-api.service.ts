@@ -22,5 +22,21 @@ export class ItemApiService {
    findById(id :number) :Observable<any> {
     return this.http.get(environment.apiUrl + id)
    }
+
+   findByName(name :string) :Observable<any> {
+    return this.http.get(environment.apiUrl + name)
+   }
+
+   save(item :Item) :Observable<any> {
+    return this.http.post(environment.apiUrl, item)
+   }
+
+   update(item :Item) :Observable<any> {
+    return this.http.put(environment.apiUrl + item.itemId, item)
+   }
+
+   delete(id :number) :Observable<any> {
+    return this.http.delete(environment.apiUrl + id)
+   }
   
   }

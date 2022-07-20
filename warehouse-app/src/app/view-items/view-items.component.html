@@ -1,5 +1,5 @@
 
-<button type="button" pButton label="View Items" class="p-button-raised p-button-rounded"></button>
+
 
 <div id="table-card" class="card">
     
@@ -47,29 +47,32 @@
         </tr>
         <tr>
             <th>
-                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'itemName', 'contains')" placeholder="Search Name">
+                <div class="flex justify-content-center align-items-center">
+                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'itemName', 'contains')" placeholder="Search Name"></div>
             </th>
             <th>
-                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'weight', 'contains')" placeholder="Search Weight">
+                <div class="flex justify-content-center align-items-center">
+                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'weight', 'contains')" placeholder="Search Weight"></div>
             </th>
-            <th>
-                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'weightType', 'contains')" placeholder="Search Weight Type">
+            <th><div class="flex justify-content-center align-items-center">
+                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'weightType', 'contains')" placeholder="Search Weight Type"></div>
             </th>
-            <th>
-                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'zoneId', 'contains')" placeholder="Search Zone">
+            <th><div class="flex justify-content-center align-items-center">
+                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'zoneId', 'contains')" placeholder="Search Zone"></div>
             </th>
-            <th>
-                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'aisle', 'contains')" placeholder="Search Aisle">
+            <th><div class="flex justify-content-center align-items-center">
+                <input pInputText type="text" (input)="itemTable.filter($any($event.target).value, 'aisle', 'contains')" placeholder="Search Aisle"></div>
             </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-item>
-        <tr>
-            <td>{{item.itemName}}</td>
-            <td>{{item.weight}}</td>
-            <td>{{item.weightType}}</td>
-            <td>{{item.zoneId}}</td>
-            <td>{{item.aisle}}</td>
+        <tr >
+            <td>
+                <div class="flex justify-content-center align-items-center">{{item.itemName}} </div></td>
+            <td><div class="flex justify-content-center align-items-center">{{item.weight}} lb</div></td>
+            <td><div class="flex justify-content-center align-items-center">{{item.weightType}}</div></td>
+            <td><div class="flex justify-content-center align-items-center">{{item.zoneId}}</div></td>
+            <td><div class="flex justify-content-center align-items-center">{{item.aisle}}</div></td>
         </tr>
     </ng-template>
 

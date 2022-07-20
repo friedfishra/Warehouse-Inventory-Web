@@ -4,6 +4,8 @@ import { ItemService } from '../item.service';
 import { Item } from '../models/Item';
 import { FilterService } from 'primeng/api';
 import { Table } from 'primeng/table/table';
+import { MenuItem } from 'primeng/api';
+
 
 
 @Component({
@@ -21,6 +23,8 @@ export class ViewItemsComponent implements OnInit {
   totalRecords :number = 0
   loading :boolean = true;
 
+  options: MenuItem[] = [];
+
   constructor(
     itemApiService: ItemApiService,
      filterService: FilterService
@@ -33,6 +37,11 @@ export class ViewItemsComponent implements OnInit {
     this.itemApiService.findAll().subscribe((resp) => {
       this.items = resp;
     });
+
+    this.options = [
+      {label: 'Update', icon: 'pi pi-refresh', command: () =>{}},
+      {label: 'Delete', icon: 'pi pi-minus-circle', command: () => {}}
+    ]
 
     this.loading = false;
 

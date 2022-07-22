@@ -1,7 +1,9 @@
 <article class="flex justify-content-center">
 
-    <p-card class="flex-row justify-content-center">
-        <div class="text-xl flex justify-content-center" style="margin: 0 1em 2em 1em;"><h2>Warehouse Status</h2></div>
+    <p-card class="flex-row justify-content-center align-items-center">
+        <div class="text-xl flex justify-content-center" >
+            <h2 class="flex" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;">Warehouse Status</h2>
+        </div>
         <p-card header="Zone 1 (Receiving)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
             <div>Item Count: {{this.zone1}}</div>
             <div>Available Capacity: {{this.capacity1}}</div>

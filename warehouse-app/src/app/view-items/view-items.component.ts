@@ -38,8 +38,8 @@ export class ViewItemsComponent implements OnInit {
 
   constructor(
     itemApiService: ItemApiService,
-     filterService: FilterService,
-     messageService: MessageService
+     filterService: FilterService
+     
   ) {
     this.itemApiService = itemApiService;
     this.filterService = filterService
@@ -115,6 +115,8 @@ export class ViewItemsComponent implements OnInit {
     })
   }
 
+  //This function gets the current row's Item and gets the item Id
+  //It sets that value to itemId on the component side so that it can be passed into the update and delete functions
   onSelect(selectedItem: Item) {
     console.log(selectedItem.itemId)
     this.itemId = selectedItem.itemId

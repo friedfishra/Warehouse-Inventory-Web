@@ -1,16 +1,23 @@
-<article class="flex justify-content-evenly">
-    <p-card header="Zone 1 (Receiving)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-        Item Count: {{this.zone1}}
+<article class="flex justify-content-center">
 
-    </p-card>
+    <p-card class="flex-row justify-content-center">
+        <div class="text-xl flex justify-content-center" style="margin: 0 1em 2em 1em;"><h2>Warehouse Status</h2></div>
+        <p-card header="Zone 1 (Receiving)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            <div>Item Count: {{this.zone1}}</div>
+            <div>Available Capacity: {{this.capacity1}}</div>
     
-    <p-card header="Zone 2 (Storage)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-        Item Count: {{this.zone2}}
-    
-    </p-card>
-    
-    <p-card header="Zone 3 (Shipping)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-        Item Count: {{this.zone3}}
-    
+        </p-card>
+        
+        <p-card header="Zone 2 (Storage)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            <div>Item Count: {{this.zone2}}</div>
+            <div>Available Capacity: {{this.capacity2}}</div>
+        
+        </p-card>
+        
+        <p-card header="Zone 3 (Shipping)" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+            <div>Item Count: {{this.zone3}}</div>
+            <div>Available Capacity: {{this.capacity3}}</div>
+        
+        </p-card>
     </p-card>
 </article>

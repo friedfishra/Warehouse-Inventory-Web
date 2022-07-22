@@ -1,4 +1,7 @@
-<nav id="nav" class="p-card flex justify-content-center align-items-center" >
+<p-menubar id="nav" class="flex justify-content-center alight-content-center">
+    <ng-template pTemplate="start">
+        <img src="assets/icon2.svg" height="80" class="mr-2" >
+    </ng-template>
     <span class="flex flex-warp justify-content-center align-items-center">
         <button pRipple type="button" pButton label="Home" class="p-button-raised p-button-rounded mx-2" icon="pi pi-home" routerLink=""></button>
         <button pRipple type="button" pButton label="View  " class="p-button-raised p-button-rounded mx-2" icon="pi pi-desktop" routerLink="/view"></button>
@@ -6,5 +9,5 @@
         <button pRipple type="button" pButton label="Update" class="p-button-raised p-button-rounded mx-2" icon="pi pi-refresh" routerLink="/update"></button>
         
     </span>
-</nav>
+</p-menubar>
 

@@ -28,6 +28,14 @@ export class ViewItemsComponent implements OnInit {
 
   itemId: number = 0;
 
+  isUpdateOn: boolean = false;
+
+  itemFormData :Item;
+  weights :number[];
+  weightTypes :string[];
+  zoneIds: number[];
+  aisles: number[];
+
   constructor(
     itemApiService: ItemApiService,
      filterService: FilterService,
@@ -35,6 +43,12 @@ export class ViewItemsComponent implements OnInit {
   ) {
     this.itemApiService = itemApiService;
     this.filterService = filterService
+    this.itemFormData = new Item();
+
+    this.weights = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+    this.weightTypes = ["Bar", "Dumbbell", "Kettlebell", "Medicine Ball", "Plates" ]
+    this.zoneIds = [1,2,3]
+    this.aisles = [1, 2, 3, 4, 5, 6, 7, 8]
   }
 
   ngOnInit(): void {
@@ -43,10 +57,10 @@ export class ViewItemsComponent implements OnInit {
     });
 
     this.options = [
-      {label: 'Update', icon: 'pi pi-refresh', command: ()=>{} },
-      {label: 'Delete', icon: 'pi pi-minus-circle', command: () => {}}
+      {label: 'Update', icon: 'pi pi-refresh', command: ()=>{this.isUpdate()} },
+      {label: 'Delete', icon: 'pi pi-minus-circle', command: () => {this.deleteItem(this.itemId)}}
     ]
-    console.log(this.options)
+    
     this.loading = false;
 
     this.cols = [
@@ -77,11 +91,23 @@ export class ViewItemsComponent implements OnInit {
   clear(table: Table) {
     table.clear();
   }
-  update(){
+  isUpdate(){
+    this.isUpdateOn = !this.isUpdateOn
+    this.itemApiService.findById(this.itemId).subscribe(resp => this.itemFormData)
+  }
 
+  updateItem(item: Item){
+    item.itemId = this.itemId
+    this.itemApiService.update(item).subscribe(resp => console.log(item))
+    this.isUpdateOn = !this.isUpdateOn
   }
 
   deleteItem(id: number) {
     this.itemApiService.delete(id).subscribe(resp => console.log(id))
+  }
+
+  onSelect(selectedItem: Item) {
+    console.log(selectedItem.itemId)
+    this.itemId = selectedItem.itemId
   }
 }

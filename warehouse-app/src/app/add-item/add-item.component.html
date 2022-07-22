@@ -1,63 +1,54 @@
-<!-- <form class="card">
+
   <div class="p-fluid grid">
-    <div class="field col-12 md:col-4">
+    <div class="field col-4 ">
       <span class="p-float-label">
-        <input type="text" id="itemName" pInputText [(ngModel)]="value1">
+        <input pInputText id="itemName" name="itemName" type="text" [(ngModel)]="itemFormData.itemName">
         <label for="itemName">Item Name</label>
       </span>
     </div>
-  </div>
-  <div class="">
-    Weight
-    <p-dropdown [options]="weights" [(ngModel)]="selectedWeight" optionLabel=""></p-dropdown>
-  </div>
 
-  <button type="button" pButton label="Submit" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save"></button>
-
-</form> -->
-
-<!-- <form (ngSubmit)="submit()"> -->
-
-  <div class="card">
-    <div class="field col-12 md:col-4">
+    <div class="field col-4">
       <span class="p-float-label">
-      <input id="itemName" name="itemName" type="text" [(ngModel)]="itemFormData.itemName">
-      <label for="itemName">Item Name</label>
+        
+        <p-dropdown inputId="weight" [autoDisplayFirst]="true" [options]="weights" placeholder="Weight (Lb)"
+          [(ngModel)]="itemFormData.weight"></p-dropdown>
+          <label for="weight">Weight (Lb)</label>
       </span>
     </div>
 
-    <div class="field col-12 md:col-2">
+    <div class="field col-4 ">
       <span class="p-float-label">
-      <p-dropdown inputId="weight"  [autoDisplayFirst]="false" [options]="weights" placeholder="Weight (Lb)" [(ngModel)]="itemFormData.weight"></p-dropdown>
-      <label for="weight">Weight (Lb)</label>
-      </span>
-    </div>
-    
-    <div class="field col-12 md:col-4">
-      <span class="p-float-label">
-        <p-dropdown inputId="weightType"  [autoDisplayFirst]="false" [options]="weightTypes" placeholder="Weight Type" [(ngModel)]="itemFormData.weightType"></p-dropdown>
+        <p-dropdown inputId="weightType" [autoDisplayFirst]="false" [options]="weightTypes" placeholder="Weight Type"
+          [(ngModel)]="itemFormData.weightType"></p-dropdown>
         <label for="weightType">Type</label>
       </span>
     </div>
-    <div class="field col-12 md:col-4">
-     <span class="p-float-label">
-      
-      <p-dropdown inputId="zoneId" [autoDisplayFirst]="false" [options]="zoneIds" placeholder="Zone"  [(ngModel)]="itemFormData.zoneId"></p-dropdown>
-      <label for="zoneId">Zone</label>
-     </span>
-    </div>
-    <div class="field col-12 md:col-4">
+    <div class="field col-4 ">
       <span class="p-float-label">
-        
-        <p-dropdown id="aisle" [autoDisplayFirst]="false" [options]="aisles" placeholder="Aisle"  [(ngModel)]="itemFormData.aisle"></p-dropdown>
+
+        <p-dropdown inputId="zoneId" [autoDisplayFirst]="false" [options]="zoneIds" placeholder="Zone"
+          [(ngModel)]="itemFormData.zoneId"></p-dropdown>
+        <label for="zoneId">Zone</label>
+      </span>
+    </div>
+    <div class="field col-4 ">
+      <span class="p-float-label">
+
+        <p-dropdown id="aisle" [autoDisplayFirst]="false" [options]="aisles" placeholder="Aisle"
+          [(ngModel)]="itemFormData.aisle"></p-dropdown>
         <label for="aisle">Aisle</label>
       </span>
     </div>
-    <div >
-      <button type="button" pButton label="Submit" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save" (click)="submit()"></button>
-      <!-- <span><input id="submit" name="submit" type="submit" value="Submit"></span> -->
-
-    </div>
+    
   </div>
+  <div>
+    <button type="button" pButton label="Add Item" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save"
+      (click)="submit()"></button>
+   
+
+  </div>
+
+
+
 <!-- 
 </form> -->

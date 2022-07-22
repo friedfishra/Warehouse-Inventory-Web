@@ -32,14 +32,18 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {SpeedDialModule} from 'primeng/speeddial';
 import { AddItemComponent } from './add-item/add-item.component';
 import {DropdownModule} from 'primeng/dropdown';
-
+import { RouterModule } from '@angular/router';
+import { UpdateItemComponent } from './update-item/update-item.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewItemsComponent,
     NavBarComponent,
-    AddItemComponent
+    AddItemComponent,
+    UpdateItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,13 @@ import {DropdownModule} from 'primeng/dropdown';
     InputNumberModule,
     CascadeSelectModule,
     MultiSelectModule,
-    InputTextareaModule
+    InputTextareaModule,
+    RouterModule.forRoot([
+      { path: 'view', component: ViewItemsComponent },
+      { path: 'add', component: AddItemComponent},
+      { path: 'update', component: UpdateItemComponent},
+      { path: '', component: HomeComponent}
+    ])
 
   ],
   providers: [

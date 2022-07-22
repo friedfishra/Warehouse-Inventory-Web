@@ -28,12 +28,12 @@ export class ItemApiService {
    }
 
    save(item :Item) {
-    // item.itemId = 4;
+    
     return this.http.post(environment.apiUrl, item).pipe(catchError(this.handleError))
    }
 
    update(item :Item)  {
-    return this.http.put(environment.apiUrl + '/' + item.itemId, item)
+    return this.http.put(environment.apiUrl, item)
    }
 
    delete(id :number) {

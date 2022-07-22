@@ -3,11 +3,11 @@ import { ItemApiService } from '../item-api.service';
 import { Item } from '../models/Item';
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  selector: 'app-update-item',
+  templateUrl: './update-item.component.html',
+  styleUrls: ['./update-item.component.css']
 })
-export class AddItemComponent implements OnInit {
+export class UpdateItemComponent implements OnInit {
   itemFormData: Item
   weights :number[];
   weightTypes :string[];
@@ -30,11 +30,10 @@ export class AddItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() :void {
+  update() :void {
     
-    this.service.save(this.itemFormData).subscribe(resp => console.log(resp))
+    this.service.update(this.itemFormData).subscribe(resp => console.log(resp))
     
   }
-
 
 }

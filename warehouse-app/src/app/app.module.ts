@@ -35,6 +35,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { RouterModule } from '@angular/router';
 import { UpdateItemComponent } from './update-item/update-item.component';
 import { HomeComponent } from './home/home.component';
+import {RippleModule} from 'primeng/ripple';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { HomeComponent } from './home/home.component';
     CascadeSelectModule,
     MultiSelectModule,
     InputTextareaModule,
+    RippleModule,
+    CardModule,
     RouterModule.forRoot([
       { path: 'view', component: ViewItemsComponent },
       { path: 'add', component: AddItemComponent},

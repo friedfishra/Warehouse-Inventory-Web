@@ -98,12 +98,21 @@ export class ViewItemsComponent implements OnInit {
 
   updateItem(item: Item){
     item.itemId = this.itemId
-    this.itemApiService.update(item).subscribe(resp => console.log(item))
+    this.itemApiService.update(item).subscribe(
+      (resp) => {
+        console.log(item)
+        this.ngOnInit();
+      })
     this.isUpdateOn = !this.isUpdateOn
+    
+   
   }
 
   deleteItem(id: number) {
-    this.itemApiService.delete(id).subscribe(resp => console.log(id))
+    this.itemApiService.delete(id).subscribe((resp) => {
+      console.log(id)
+      this.ngOnInit();
+    })
   }
 
   onSelect(selectedItem: Item) {

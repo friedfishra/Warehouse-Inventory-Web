@@ -87,7 +87,7 @@
     <div class="p-fluid grid">
         <div class="field col-4 ">
           <span class="p-float-label">
-            <input pInputText id="itemName" name="itemName" type="text" [(ngModel)]="itemFormData.itemName" placeholder=itemFormData.itemName>
+            <input pInputText id="itemName" name="itemName" type="text" [(ngModel)]="itemFormData.itemName" >
             <label for="itemName">Item Name</label>
           </span>
         </div>
@@ -127,7 +127,7 @@
         
       </div>
       <div>
-        <button type="button" pButton label="Update Item" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save"
+        <button pRipple type="button" pButton label="Update Item" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save"
           (click)="updateItem(this.itemFormData)"></button>
        
     

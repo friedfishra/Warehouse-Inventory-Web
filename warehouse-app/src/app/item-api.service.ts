@@ -33,11 +33,11 @@ export class ItemApiService {
    }
 
    update(item :Item)  {
-    return this.http.put(environment.apiUrl, item)
+    return this.http.put(environment.apiUrl, item).pipe(catchError(this.handleError))
    }
 
    delete(id :number) {
-    return this.http.delete(environment.apiUrl + '/'+ id)
+    return this.http.delete(environment.apiUrl + '/'+ id).pipe(catchError(this.handleError))
    }
 
    private handleError(error :HttpErrorResponse){
@@ -45,6 +45,10 @@ export class ItemApiService {
     return throwError(() => {
       throw new Error();
     });
+  }
+
+  getItemCount(zoneId: number): Observable<any> {
+    return this.http.get('http://localhost:8080/warehouse/zones/'+ zoneId).pipe(catchError(this.handleError))
   }
   
   }

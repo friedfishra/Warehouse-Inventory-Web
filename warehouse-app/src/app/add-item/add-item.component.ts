@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemApiService } from '../item-api.service';
 import { Item } from '../models/Item';
+
 
 @Component({
   selector: 'app-add-item',
@@ -17,7 +19,7 @@ export class AddItemComponent implements OnInit {
   
 
   service: ItemApiService
-  constructor(service: ItemApiService) { 
+  constructor(service: ItemApiService, private router: Router) { 
     this.itemFormData = new Item()
     this.weights = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
     this.weightTypes = ["Bar", "Dumbbell", "Kettlebell", "Medicine Ball", "Plates" ]
@@ -32,7 +34,11 @@ export class AddItemComponent implements OnInit {
 
   submit() :void {
     
-    this.service.save(this.itemFormData).subscribe(resp => console.log(resp))
+    this.service.save(this.itemFormData).subscribe(resp => 
+      {
+        console.log(resp),
+        this.router.navigate(['/view'])
+      })
     
   }
 

@@ -74,7 +74,7 @@ import {CardModule} from 'primeng/card';
       { path: 'view', component: ViewItemsComponent },
       { path: 'add', component: AddItemComponent},
       { path: 'update', component: UpdateItemComponent},
-      { path: '', component: HomeComponent}
+      { path: 'home', component: HomeComponent}
     ])
 
   ],

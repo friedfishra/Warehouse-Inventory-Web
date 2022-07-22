@@ -2,18 +2,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { Input, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {AutoCompleteModule } from "primeng/autocomplete"
 import { ItemApiService } from './item-api.service';
-import { ItemService } from './item.service';
+
 import { ViewItemsComponent } from './view-items/view-items.component';
+
+
+import { ChipsModule } from "primeng/chips";
+import { InputMaskModule } from "primeng/inputmask";
+import { InputNumberModule } from "primeng/inputnumber";
+import { CascadeSelectModule } from "primeng/cascadeselect";
+import { MultiSelectModule } from "primeng/multiselect";
+import { InputTextareaModule } from "primeng/inputtextarea";
 
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItemContent, MenuModule} from 'primeng/menu';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MessageService,} from 'primeng/api';
 import {MegaMenuItem} from 'primeng/api';
 import {FilterService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
@@ -21,6 +31,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {SpeedDialModule} from 'primeng/speeddial';
 import { AddItemComponent } from './add-item/add-item.component';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +43,7 @@ import { AddItemComponent } from './add-item/add-item.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -40,12 +53,21 @@ import { AddItemComponent } from './add-item/add-item.component';
     MenuModule,
     InputTextModule,
     SplitButtonModule,
-    SpeedDialModule
+    SpeedDialModule,
+    DropdownModule,
+    AutoCompleteModule,
+    ChipsModule,
+    InputMaskModule,
+    InputNumberModule,
+    CascadeSelectModule,
+    MultiSelectModule,
+    InputTextareaModule
 
   ],
   providers: [
-    ItemService,
-    ItemApiService
+    
+    ItemApiService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

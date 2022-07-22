@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemApiService } from '../item-api.service';
-import { ItemService } from '../item.service';
+
 import { Item } from '../models/Item';
 import { FilterService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table/table';
 import { MenuItem } from 'primeng/api';
 
@@ -23,11 +24,14 @@ export class ViewItemsComponent implements OnInit {
   totalRecords :number = 0
   loading :boolean = true;
 
-  options: MenuItem[] = [];
+  options!: Array<MenuItem>;
+
+  itemId: number = 0;
 
   constructor(
     itemApiService: ItemApiService,
-     filterService: FilterService
+     filterService: FilterService,
+     messageService: MessageService
   ) {
     this.itemApiService = itemApiService;
     this.filterService = filterService
@@ -39,10 +43,10 @@ export class ViewItemsComponent implements OnInit {
     });
 
     this.options = [
-      {label: 'Update', icon: 'pi pi-refresh', command: () =>{}},
+      {label: 'Update', icon: 'pi pi-refresh', command: ()=>{} },
       {label: 'Delete', icon: 'pi pi-minus-circle', command: () => {}}
     ]
-
+    console.log(this.options)
     this.loading = false;
 
     this.cols = [
@@ -72,5 +76,12 @@ export class ViewItemsComponent implements OnInit {
   }
   clear(table: Table) {
     table.clear();
-}
+  }
+  update(){
+
+  }
+
+  deleteItem(id: number) {
+    this.itemApiService.delete(id).subscribe(resp => console.log(id))
+  }
 }

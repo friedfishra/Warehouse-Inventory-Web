@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http'
+import { HttpClient, HttpErrorResponse} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { Item } from './models/Item';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,23 +20,31 @@ export class ItemApiService {
    }
 
    findById(id :number) :Observable<any> {
-    return this.http.get(environment.apiUrl + id)
+    return this.http.get(environment.apiUrl + '/' + id)
    }
 
    findByName(name :string) :Observable<any> {
-    return this.http.get(environment.apiUrl + name)
+    return this.http.get(environment.apiUrl + '/' +name)
    }
 
-   save(item :Item) :Observable<any> {
-    return this.http.post(environment.apiUrl, item)
+   save(item :Item) {
+    // item.itemId = 4;
+    return this.http.post(environment.apiUrl, item).pipe(catchError(this.handleError))
    }
 
-   update(item :Item) :Observable<any> {
-    return this.http.put(environment.apiUrl + item.itemId, item)
+   update(item :Item)  {
+    return this.http.put(environment.apiUrl + '/' + item.itemId, item)
    }
 
-   delete(id :number) :Observable<any> {
-    return this.http.delete(environment.apiUrl + id)
+   delete(id :number) {
+    return this.http.delete(environment.apiUrl + '/'+ id)
    }
+
+   private handleError(error :HttpErrorResponse){
+    console.log(error);
+    return throwError(() => {
+      throw new Error();
+    });
+  }
   
   }

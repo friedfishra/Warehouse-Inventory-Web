@@ -1,1 +1,61 @@
-<p>add-item works!</p>
+<!-- <form class="card">
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-4">
+      <span class="p-float-label">
+        <input type="text" id="itemName" pInputText [(ngModel)]="value1">
+        <label for="itemName">Item Name</label>
+      </span>
+    </div>
+  </div>
+  <div class="">
+    Weight
+    <p-dropdown [options]="weights" [(ngModel)]="selectedWeight" optionLabel=""></p-dropdown>
+  </div>
+
+  <button type="button" pButton label="Submit" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save"></button>
+
+</form> -->
+
+<!-- <form (ngSubmit)="submit()"> -->
+
+  <div class="p-fluid grid">
+    <div class="field col-12 md:col-4">
+      <span class="p-float-label">
+        <label for="itemName">Item Name</label>
+      <input id="itemName" name="itemName" type="text" [(ngModel)]="itemFormData.itemName">
+      </span>
+    </div>
+
+    <div class="field col-12 md:col-2">
+      <span class="p-float-label">
+        <label for="weight">Weight (Lb)</label>
+      <p-dropdown id="weight" [options]="weights" placeholder="Weight (Lb)" [(ngModel)]="itemFormData.weight"></p-dropdown>
+      </span>
+    </div>
+    
+    <div class="field col-12 md:col-4">
+      <span class="p-float-label">
+        <label for="weightType">Type</label>
+        <input id="weightType" name="weightType" type="text" [(ngModel)]="itemFormData.weightType">
+      </span>
+    </div>
+    <div class="field col-12 md:col-4">
+     <span class="p-float-label">
+      <label for="zoneId">Zone</label>
+      <input id="zoneId" name="zoneId" type="number" [(ngModel)]="itemFormData.zoneId">
+     </span>
+    </div>
+    <div class="field col-12 md:col-4">
+      <span class="p-float-label">
+        <label for="aisle">Aisle</label>
+        <input id="aisle" name="aisle" type="number" [(ngModel)]="itemFormData.aisle">
+      </span>
+    </div>
+    <div >
+      <button type="button" pButton label="Submit" class="p-button-raised p-button-rounded mx-2" icon="pi pi-save" (click)="submit()"></button>
+      <!-- <span><input id="submit" name="submit" type="submit" value="Submit"></span> -->
+
+    </div>
+  </div>
+<!-- 
+</form> -->
